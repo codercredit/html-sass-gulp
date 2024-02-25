@@ -105,6 +105,6 @@ Feel free to [create an issue](https://github.com/codercredit/html-css-js-quickS
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
-Copyright (c) 2021 [codercredit]
+Copyright (c) 2024 [codercredit]
 
 ## Nunjucks

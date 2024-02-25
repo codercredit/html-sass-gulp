@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "caniuse-lite": "^1.0.30001566",
+    "concurrent-transform": "^1.0.0",
     "gulp-nunjucks-render": "^2.2.3",
     "nunjucks": "^3.2.0",
     "rfs": "^9.0.5"

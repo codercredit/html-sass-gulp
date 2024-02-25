@@ -3,7 +3,7 @@ var gulp = require("gulp"),
   argv = require("minimist")(process.argv.slice(2)),
   browserSync = require("browser-sync").create(),
   reload = browserSync.reload,
-  sass = require('gulp-sass')(require('sass')),
+  sass = require("gulp-sass")(require("sass")),
   cleanCSS = require("gulp-clean-css"),
   csso = require("gulp-csso"),
   del = require("del");
@@ -146,33 +146,22 @@ function html() {
     css
 ===================================================== */
 function scss() {
-  return (
-    gulp
-      .src([path.scss])
-      // .pipe(customPlumber('Error Running Sass'))
-      // sourcemaps for Development
-      .pipe(gulpif(sourcemap, sourcemaps.init()))
-      .pipe(sass({ outputStyle: "expanded" }).on("error", sass.logError))
-      .pipe(autoPrefixer())
-      .pipe(
-        gulpif(
-          argv.demo,
-          csso({
-            restructure: false,
-            sourceMap: true,
-            debug: true,
-          })
-        )
+  return gulp
+    .src([path.scss])
+    .pipe(gulpif(sourcemap, sourcemaps.init()))
+    .pipe(sass({ outputStyle: "expanded" }).on("error", sass.logError))
+    .pipe(autoPrefixer())
+    .pipe(
+      gulpif(
+        argv.demo,
+        csso({ restructure: false, sourceMap: true, debug: true })
       )
-      .pipe(gulpif(sourcemap, sourcemaps.write("./maps/")))
-      .pipe(lineec())
-      .pipe(gulp.dest(dest.css))
-      .pipe(
-        browserSync.reload({
-          stream: true,
-        })
-      )
-  );
+    )
+    .pipe(lineec())
+    .pipe(rename("style.css")) // Rename the output CSS file to style.css
+    .pipe(gulpif(sourcemap, sourcemaps.write("."))) // Write source maps to './maps' directory
+    .pipe(gulp.dest(dest.css))
+    .pipe(browserSync.reload({ stream: true }));
 }
 
 var separator = "\n/*====================================*/\n\n";
@@ -304,16 +293,7 @@ function watchFiles() {
   gulp.watch(path.scss, sassCopy);
   gulp.watch(path.php, php);
   gulp.watch(path.root, gulp.series(clean, build));
-  gulp.watch(watchSrc).on('change', reload);
 }
-// Builds
-// const compile = gulp.series(html,scss);
-// const concatFiles = gulp.series(pluginCss,pluginJs);
-// const copy = gulp.series(fonts,php,assets,javascript,sass,imgmin);
-
-// const build = gulp.series(clean,compile,concatFiles, gulp.parallel(copy));
-// const watch = gulp.parallel(watchFiles, browserSync);
-// const buildWatch = gulp.series(build, gulp.parallel(watch));
 
 const build = gulp.series(
   clean,
