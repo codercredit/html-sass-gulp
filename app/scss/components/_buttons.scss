@@ -1,0 +1,16 @@
+.it-btn {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--colorWhite);
+  background-color: var(--colorPrimary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 30px;
+  min-height: 60px;
+  border-radius: 999px;
+  & > i {
+    font-size: 16px;
+  }
+}

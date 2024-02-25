@@ -2,32 +2,34 @@
 Variables
 */
 
-// Fonts
-$fontPrimary: "Source Serif Pro", serif;
-$fontSecondary: "Jost", sans-serif;
+:root {
+  --fontPrimary: "Space Grotesk", sans-serif;
 
-// Colors
-$colorPrimary: #f07654;
-$colorSecondary: #1f1f1f;
+  /* Colors */
+  --colorPrimary: #bb2525;
+  --colorSecondary: #141e46;
+  --colorTertiary: #ff6969;
+  --colorWhite: #fff;
+  --colorBlack: #000;
+  --colorMeta: #868686;
+  --colorText: #686868;
+  --colorTitle: #4c5c7b;
+  --colorDarkFour: #768197;
+  --colorDarkFive: #8892a5;
+  --colorTagsOne: #ff4337;
+  --colorTagsTwo: #f07654;
+  --colorTagsThree: #97c94c;
+  --colorTagsFour: #c41dff;
+  --colorTagsFive: #ffad33;
+  --colorShade: #ffefec;
+  --colorBg: #fff5e0;
 
-$colorWhite: #fff;
-$colorBlack: #000;
+  /* Box Shadow */
+  --box-shadow: 0px 20px 60px rgba(73, 21, 13, 0.1);
 
-$colorMeta: #868686;
-$colorText: #686868;
+  --icon-font: "Font Awesome 6 Free";
+  --main-container: 1290px;
+  --container-gutters: 30px;
+}
 
-$colorTitle: #4c5c7b;
-
-$colorDarkFour: #768197;
-$colorDarkFive: #8892a5;
-
-$colorTagsOne: #ff4337;
-$colorTagsTwo: #f07654;
-$colorTagsThree: #97c94c;
-$colorTagsFour: #c41dff;
-$colorTagsFive: #ffad33;
-
-$colorShade: #ffefec;
-
-// box Shadow
-$box-shadow: 0px 20px 60px rgba(73, 21, 13, 0.1);
+$colorSecondary: #141e46;

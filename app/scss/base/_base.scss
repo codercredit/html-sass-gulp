@@ -1,0 +1,16 @@
+.highlight-border {
+  display: inline;
+  background-image: linear-gradient(
+    to bottom,
+    var(--colorTertiary) 0%,
+    var(--colorTertiary) 100%
+  );
+  background-repeat: no-repeat;
+  background-position: 80% 80%;
+  background-size: 95% 15px;
+}
+.main {
+  &--bg {
+    background-color: var(--colorBg);
+  }
+}

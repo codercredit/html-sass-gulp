@@ -1,0 +1,57 @@
+.banner {
+  &--layout1 {
+    padding: 90px 0 60px;
+  }
+  &__title {
+    margin-bottom: 54px;
+  }
+  &__box {
+    position: relative;
+    max-width: 520px;
+    z-index: 1;
+    &__content {
+      mask-image: url("data:image/svg+xml,%3Csvg width='520' height='252' viewBox='0 0 520 252' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M520 50C520 22.3858 497.614 0 470 0H50C22.3858 0 0 22.3858 0 50V202C0 229.614 22.3858 252 50 252H275C302.614 252 325 229.614 325 202V198C325 170.386 347.386 148 375 148H470C497.614 148 520 125.614 520 98V50Z' fill='white'/%3E%3C/svg%3E%0A");
+      border-radius: 50px;
+      padding: 40px;
+      background-color: #fff;
+      mask-repeat: no-repeat;
+    }
+    &__btn {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 19px;
+      background: var(--colorBg);
+      border-radius: 999px;
+    }
+  }
+  &__text {
+    margin-bottom: 20px;
+  }
+  &__clients {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    &__list {
+      & > ul {
+        display: flex;
+        align-items: center;
+        padding-right: 17px;
+        & > li {
+          margin: 0 -17px 0 0;
+        }
+      }
+    }
+    &__counter {
+      display: flex;
+      flex-direction: column;
+    }
+    &__number {
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--colorSecondary);
+      letter-spacing: -0.64px;
+      line-height: 1.25;
+    }
+  }
+}

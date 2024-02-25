@@ -1,0 +1,175 @@
+/*-----------------
+    5.2 Navigation or Main Menu
+-----------------*/
+.menubar {
+  $menubar: &;
+  @include respond-below(md) {
+    display: none;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    justify-content: center;
+    @include respond-below(lg) {
+      gap: 25px;
+    }
+  }
+  &__link {
+    font-weight: var(--fw-semi);
+    color: var(--colorSecondary);
+    padding: 48px 0;
+    display: inline-block;
+    font-size: 18px;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 0%;
+      height: 1px;
+      top: 60%;
+      left: auto;
+      right: 0;
+      opacity: 0;
+      visibility: hidden;
+      @include transitionSmooth;
+      background-color: var(--colorSecondary);
+    }
+  }
+  &__item {
+    &--child {
+      position: relative;
+      #{$menubar}__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        &::after {
+          content: "";
+          width: 0px;
+          height: 0px;
+          border-style: solid;
+          border-width: 4px 4.5px 0 4.5px;
+          border-color: var(--colorSecondary) transparent transparent
+            transparent;
+          transform: rotate(0deg);
+          @include transitionSmooth;
+        }
+      }
+    }
+    &:hover {
+      #{$menubar}__link {
+        &::after {
+          border-color: var(--colorPrimary) transparent transparent transparent;
+          transform: rotate(180deg);
+        }
+        color: var(--colorPrimary);
+        &::before {
+          opacity: 1;
+          visibility: visible;
+          left: 0;
+          right: auto;
+          width: 100%;
+          background-color: var(--colorPrimary);
+        }
+      }
+    }
+  }
+  &__submenu {
+    $submenu: &;
+    background-color: var(--colorWhite);
+    position: absolute;
+    min-width: 252px;
+    top: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(13, 110, 253, 0.25) 0px 0px 6px 0px inset,
+      rgb(255 255 255) -3px -3px 0px 0px inset;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease 0s;
+    transform: scaleY(0);
+    transform-origin: center top;
+    z-index: 9;
+    border-radius: 10px;
+    &__link {
+      display: block;
+      color: var(--colorSecondary);
+      font-size: var(--fs-default);
+      font-weight: var(--fw-medium);
+      padding: 0 15px;
+    }
+    &__item {
+      padding: 17px 0;
+      border-bottom: 1px solid rgba(203, 219, 232, 0.552);
+      cursor: pointer;
+      text-align: left;
+      &:last-child {
+        border-bottom: 1px solid transparent;
+      }
+      &:hover {
+        & > #{$submenu}__link {
+          color: var(--colorPrimary);
+        }
+        &::after {
+          border-color: transparent transparent transparent var(--colorPrimary);
+          transform: translateY(-50%) rotate(180deg);
+        }
+      }
+    }
+  }
+  &__item {
+    &--child {
+      &:hover {
+        #{$menubar}__level1 {
+          opacity: 1;
+          visibility: visible;
+          transform: scaleY(1);
+        }
+      }
+    }
+  }
+  &__level2 {
+    position: relative;
+    &::after {
+      content: "";
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent var(--colorSecondary);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(0deg);
+      left: auto;
+      right: 5px;
+      @include transitionSmooth;
+    }
+    #{$menubar}__submenu {
+      top: 0;
+      left: 100%;
+      opacity: 0;
+      visibility: hidden;
+      @include transitionSmooth;
+    }
+    &:hover {
+      #{$menubar}__submenu {
+        left: 100%;
+        visibility: visible;
+        opacity: 1;
+        @include transitionSmooth;
+        transform: scaleY(1);
+      }
+    }
+  }
+  &--style2 {
+    #{$menubar}__link {
+      color: var(--colorWhite);
+      &::after {
+        border-color: var(--colorWhite) transparent transparent transparent;
+      }
+      &::before {
+        background-color: var(--colorWhite);
+      }
+    }
+  }
+}

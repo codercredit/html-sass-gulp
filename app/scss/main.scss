@@ -1,3 +1,14 @@
+/*
+Template Name: technaf
+Template URL: https://insighttheme.com/technaf
+Description: technaf - IT Solution & Service HTML Template
+Author: vecuro
+Author URI: https://themeforest.net/user/insighttheme
+Version: 1.0.0
+*/
+/*=================================
+    CSS Index Here
+==================================*/
 @charset "UTF-8";
 
 // 1. Configuration and helpers
@@ -9,10 +20,12 @@
 // 2. Base stuff
 @import "base/reset";
 @import "base/base";
+@import "base/container";
 @import "base/typography";
 
 // 3. Layout-related sections
 @import "layout/navigation";
+@import "layout/banner";
 @import "layout/grid";
 @import "layout/header";
 @import "layout/footer";
